@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
+ 
 function HeroBanner() {
   const router = useRouter();
   const [image, setImage] = useState(1);
@@ -120,6 +121,7 @@ function HeroBanner() {
             </li>
           </ul>
         </div>
+        
       </div>
     </div>
   );
