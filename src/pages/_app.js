@@ -6,6 +6,7 @@ import { useCookies } from "react-cookie";
 import { useEffect } from "react";
 import { StateProvider } from "../context/StateContext";
 import reducer, { initialState } from "../context/StateReducers";
+import Navbar from "@/components/Navbar";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -25,10 +26,10 @@ export default function App({ Component, pageProps }) {
     <StateProvider initialState={initialState} reducer={reducer}>
       <Head>
         <link rel="shortcut icon" href="/favicon.ico" />
-        <title>Fiverr Clone</title>
+        <title>Skilled</title>
       </Head>
       <div className="relative flex flex-col h-screen justify-between">
-       
+       <Navbar />
         <div
           className={`${
             router.pathname !== "/" ? "mt-36" : ""
