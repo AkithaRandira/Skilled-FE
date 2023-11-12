@@ -12,17 +12,47 @@ function AuthWrapper({ type }) {
   const [cookies, setCookies] = useCookies();
   const [{ showLoginModal, showSignupModal }, dispatch] = useStateProvider();
   const router = useRouter();
-
+  const [errors, setErrors] = useState({});
   const [values, setValues] = useState({ email: "", password: "" });
 
   const handleChange = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setValues({ ...values, [name]: value });
+    setErrors({ ...errors, [name]: value ? "" : "This field is required" });
+  };
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePassword = (password) => {
+    return password.length >= 8; // Adjust the length as needed
   };
 
   const handleClick = async () => {
     try {
       const { email, password } = values;
-      if (email && password) {
+      const formErrors = Object.keys(values).reduce((acc, key) => {
+        if (!values[key]) {
+          acc[key] = "This field is required";
+        }
+        return acc;
+      }, {});
+      
+      // Validate email
+      if (!email || !validateEmail(email)) {
+        formErrors.email = "Please enter a valid email address";
+      }
+
+      // Validate password
+      if (!password || !validatePassword(password)) {
+        formErrors.password = "Password must be at least 8 characters long";
+      }
+
+      setErrors(formErrors);
+
+      if (Object.keys(formErrors).length === 0) {
         const {
           data: { user, jwt },
         } = await axios.post(
@@ -32,7 +62,6 @@ function AuthWrapper({ type }) {
         );
         setCookies("jwt", { jwt: jwt });
         dispatch({ type: reducerCases.CLOSE_AUTH_MODAL });
-
         if (user) {
           dispatch({ type: reducerCases.SET_USER, userInfo: user });
           window.location.reload();
@@ -102,15 +131,25 @@ function AuthWrapper({ type }) {
                 name="email"
                 placeholder="Email / Username"
                 onChange={handleChange}
-                className="border border-slate-300 p-3 w-80"
+                className={`border ${
+                  errors.email ? "border-red-500" : "border-slate-300"
+                } p-3 w-80`}
               />
+              {errors.email && (
+                <span className="text-red-500 text-sm">{errors.email}</span>
+              )}
               <input
                 type="password"
                 placeholder="Password"
                 onChange={handleChange}
-                className="border border-slate-300 p-3 w-80"
+                className={`border ${
+                  errors.password ? "border-red-500" : "border-slate-300"
+                } p-3 w-80`}
                 name="password"
               />
+              {errors.password && (
+                <span className="text-red-500 text-sm">{errors.password}</span>
+              )}
               <button
                 className="bg-[#1DBF73] text-white px-12 text-lg font-semibold rounded-r-md p-3 w-80"
                 onClick={handleClick}
