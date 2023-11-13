@@ -39,7 +39,7 @@ function AuthWrapper({ type }) {
         }
         return acc;
       }, {});
-      
+
       // Validate email
       if (!email || !validateEmail(email)) {
         formErrors.email = "Please enter a valid email address";
@@ -68,7 +68,16 @@ function AuthWrapper({ type }) {
         }
       }
     } catch (err) {
-      console.log(err);
+      if (
+        err.response &&
+        err.response.status === 400 &&
+        err.response.data === "Email Already Registered"
+      ) {
+        // Email is already registered, update the error state
+        setErrors({ ...errors, email: "This email is already registered" });
+      } else {
+        console.log(err);
+      }
     }
   };
 
@@ -108,7 +117,7 @@ function AuthWrapper({ type }) {
           <div className="flex flex-col justify-center items-center p-8 gap-7">
             <h3 className="text-2xl font-semibold text-slate-700">
               {type === "login" ? "Sign In " : "Sign Up "}
-               to Fiverr
+              to Fiverr
             </h3>
             <div className="flex flex-col gap-5">
               <button className="text-white bg-blue-500 p-3 font-semibold w-80 flex items-center justify-center relative">

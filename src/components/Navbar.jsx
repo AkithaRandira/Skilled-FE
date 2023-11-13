@@ -5,8 +5,9 @@ import Link from "next/link";
 import { IoSearchOutline } from "react-icons/io5";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
+import Image from "next/image";
 import axios from "axios";
-import { GET_USER_INFO } from "@/utils/constants";
+import { GET_USER_INFO, HOST } from "@/utils/constants";
 import { reducerCases } from "@/context/constants";
 
 function Navbar() {
