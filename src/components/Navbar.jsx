@@ -99,7 +99,7 @@ function Navbar() {
           setIsLoaded(true);
           console.log({ user });
           if (user.isProfileSet === false) {
-            // router.push("/profile");
+             router.push("/profile");
           } else {
             setIsLoaded(true);
           }
