@@ -45,17 +45,17 @@ function Navbar() {
   const [{ showLoginModal, showSignupModal, isSeller, userInfo }, dispatch] =
     useStateProvider();
 
-    useEffect(() => {
-        if (router.pathname === "/") {
-          const positionNavbar = () => {
-            window.pageYOffset > 0 ? setIsFixed(true) : setIsFixed(false);
-          };
-          window.addEventListener("scroll", positionNavbar);
-          return () => window.removeEventListener("scroll", positionNavbar);
-        } else {
-          setIsFixed(true);
-        }
-      }, [router.pathname]);
+  useEffect(() => {
+    if (router.pathname === "/") {
+      const positionNavbar = () => {
+        window.pageYOffset > 0 ? setIsFixed(true) : setIsFixed(false);
+      };
+      window.addEventListener("scroll", positionNavbar);
+      return () => window.removeEventListener("scroll", positionNavbar);
+    } else {
+      setIsFixed(true);
+    }
+  }, [router.pathname]);
 
   const links = [
     { linkName: "Skilled Business", handler: "#", type: "link" },
@@ -99,7 +99,7 @@ function Navbar() {
           setIsLoaded(true);
           console.log({ user });
           if (user.isProfileSet === false) {
-             router.push("/profile");
+            router.push("/profile");
           } else {
             setIsLoaded(true);
           }
@@ -116,14 +116,14 @@ function Navbar() {
   const [isContextMenuVisible, setIsContextMenuVisible] = useState(false);
 
   const handleOrdersNavigate = () => {
-    if (isSeller) router.push("/seller/orders");
-    router.push("/buyer/orders");
+    if (isSeller) router.push("/seller/order");
+    router.push("/buyer/order");
   };
 
   const handleModeSwitch = () => {
     if (isSeller) {
       dispatch({ type: reducerCases.SWITCH_MODE });
-      router.push("/buyer/orders");
+      router.push("/buyer/order");
     } else {
       dispatch({ type: reducerCases.SWITCH_MODE });
       router.push("/seller");
