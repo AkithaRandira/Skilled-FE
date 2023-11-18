@@ -9,6 +9,7 @@ import Image from "next/image";
 import axios from "axios";
 import { GET_USER_INFO, HOST } from "@/utils/constants";
 import { reducerCases } from "@/context/constants";
+import ContextMenu from "./search/ContextMenu";
 
 function Navbar() {
   const handleLogin = () => {
@@ -117,7 +118,7 @@ function Navbar() {
 
   const handleOrdersNavigate = () => {
     if (isSeller) router.push("/seller/order");
-    router.push("/buyer/order");
+    else router.push("/buyer/order");
   };
 
   const handleModeSwitch = () => {
@@ -130,6 +131,26 @@ function Navbar() {
     }
   };
 
+  const ContextMenuData = [
+    {
+      name: "Profile",
+      callback: (e) => {
+        e.stopPropagation();
+
+        setIsContextMenuVisible(false);
+        router.push("/profile");
+      },
+    },
+    {
+      name: "Logout",
+      callback: (e) => {
+        e.stopPropagation();
+
+        setIsContextMenuVisible(false);
+        router.push("/logout");
+      },
+    },
+  ];
   return (
     <>
       {isLoaded && (
