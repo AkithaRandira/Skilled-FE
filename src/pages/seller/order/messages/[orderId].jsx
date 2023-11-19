@@ -1,4 +1,4 @@
-import MessageContainer from "../../../../components/Messages/MessageContainer";
+import MessageContainer from "@/components/messages/MessageContainer";
 import React from "react";
 
 function Message() {
