@@ -20,6 +20,9 @@ function Index() {
     };
     getUserGigs();
   }, []);
+
+
+  
   return (
     <div className="min-h-[80vh] my-10 mt-0 px-32">
       <h3 className="m-5 text-2xl font-semibold">All your Gigs</h3>
@@ -71,14 +74,14 @@ function Index() {
                       Edit
                     </Link>
                   </td>
-                  {/* <td className="px-6 py-4 text-right">
+                  <td className="px-6 py-4 text-right">
                     <Link
-                      href={`/seller/gigs/${id}`}
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                      href={`/seller/gigs/delete/${id}`}
+                      className="font-medium text-red-600 dark:red-blue-500 hover:underline"
                     >
                       Delete
                     </Link>
-                  </td> */}
+                  </td>
                 </tr>
               );
             })}
