@@ -70,7 +70,7 @@ function MessageContainer() {
                   <div
                     className={`inline-block rounded-lg ${
                       message.senderId === userInfo.id
-                        ? "bg-[#1DBF73] text-white"
+                        ? "bg-sky-300 text-black"
                         : "bg-gray-100 text-gray-800"
                     } px-4 py-2 max-w-xs break-all`}
                   >
@@ -100,7 +100,7 @@ function MessageContainer() {
             />
             <button
               type="submit"
-              className="bg-[#1DBF73] text-white rounded-full px-4 py-2"
+              className="bg-sky-400 text-white rounded-full px-4 py-2"
               onClick={sendMessage}
             >
               <FaRegPaperPlane />

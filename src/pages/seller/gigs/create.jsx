@@ -259,7 +259,7 @@ function CreateGigs() {
 
               <button
                 type="button"
-                className="focus:outline-none text-white bg-blue-700 hover:bg-blue-800  font-medium  text-lg px-10 py-3 rounded-md "
+                className="focus:outline-none text-white bg-sky-500 hover:bg-sky-400 font-medium  text-lg px-10 py-3 rounded-md "
                 onClick={addFeature}
               >
                 Add
@@ -317,7 +317,7 @@ function CreateGigs() {
           </div>
           <div>
             <label htmlFor="price" className={labelClassName}>
-              Gig Price ( $ )
+              Gig Price ( LKR )
             </label>
             <input
               type="number"
@@ -333,7 +333,7 @@ function CreateGigs() {
         </div>
         <div>
           <button
-            className="border   text-lg font-semibold px-5 py-3   border-[#1DBF73] bg-[#1DBF73] text-white rounded-md"
+            className="border   text-lg font-semibold px-5 py-3  bg-sky-500 hover:bg-sky-400 text-white rounded-md"
             type="button"
             onClick={addGig}
           >

@@ -37,7 +37,7 @@ function Orders() {
                 Category
               </th>
               <th scope="col" className="px-6 py-3">
-                Price
+                Price (LKR)
               </th>
               <th scope="col" className="px-6 py-3">
                 Delivery Time

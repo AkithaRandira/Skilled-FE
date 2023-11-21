@@ -265,7 +265,7 @@ function EditGig() {
           </div>
           <div>
             <label htmlFor="price" className={labelClassName}>
-              Gig Price ( $ )
+              Gig Price ( LKR )
             </label>
             <input
               type="number"

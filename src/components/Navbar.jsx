@@ -59,10 +59,10 @@ function Navbar() {
   }, [router.pathname]);
 
   const links = [
-    { linkName: "Skilled Business", handler: "#", type: "link" },
-    { linkName: "Explore", handler: "#", type: "link" },
-    { linkName: "English", handler: "#", type: "link" },
-    { linkName: "Become a Seller", handler: "#", type: "link" },
+    // { linkName: "Skilled Business", handler: "#", type: "link" },
+    // { linkName: "Explore", handler: "#", type: "link" },
+    // { linkName: "English", handler: "#", type: "link" },
+    // { linkName: "Become a Seller", handler: "#", type: "link" },
     { linkName: "Sign in", handler: handleLogin, type: "button" },
     { linkName: "Join", handler: handleSignup, type: "button2" },
   ];
@@ -163,9 +163,7 @@ function Navbar() {
         >
           <div>
             <Link href="/">
-              <SkilledLogo
-                fillColor={!isFixed && !userInfo ? "#ffffff" : "#404145"}
-              />
+              <img className="w-64" src="/skilled-logo.png"></img>
             </Link>
           </div>
           <div
@@ -176,12 +174,12 @@ function Navbar() {
             <input
               type="text"
               placeholder="What service are you looking for today?"
-              className="w-[30rem] py-2.5 px-4 border"
+              className="w-[30rem] py-2.5 px-4 border rounded-l-lg"
               value={searchData}
               onChange={(e) => setSearchData(e.target.value)}
             />
             <button
-              className="bg-gray-900 py-1.5 text-white w-16 flex justify-center items-center"
+              className="bg-gray-500 py-1.5 text-white w-16 flex justify-center items-center rounded-r-lg"
               onClick={() => {
                 setSearchData("");
                 router.push(`/search?q=${searchData}`);
@@ -224,14 +222,22 @@ function Navbar() {
             <ul className="flex gap-10 items-center">
               {isSeller && (
                 <li
-                  className="cursor-pointer text-[#1DBF73] font-medium"
+                  className="cursor-pointer text-[#ffffff] font-medium bg-sky-500 hover:bg-sky-400 px-4 py-2 rounded-md"
                   onClick={() => router.push("/seller/gigs/create")}
                 >
                   Create Gig
                 </li>
               )}
+              {isSeller && (
+                <li
+                  className="cursor-pointer text-[#ffffff] font-medium bg-sky-500 hover:bg-sky-400 px-4 py-2 rounded-md"
+                  onClick={() => router.push("/seller")}
+                >
+                  Dashboard
+                </li>
+              )}
               <li
-                className="cursor-pointer text-[#1DBF73] font-medium"
+                className="cursor-pointer text-[#ffffff] bg-sky-500 hover:bg-sky-400 px-4 py-2 rounded-md font-medium"
                 onClick={handleOrdersNavigate}
               >
                 Orders
@@ -249,7 +255,7 @@ function Navbar() {
                   className="cursor-pointer font-medium"
                   onClick={handleModeSwitch}
                 >
-                  Switch To Seller
+                  Switch To Freelancer
                 </li>
               )}
               <li

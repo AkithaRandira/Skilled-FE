@@ -21,13 +21,29 @@ function Index() {
     };
     if (userInfo) {
       getBuyerDashboardData();
+      console.log(dashboardData?.dailyRevenue);
     }
   }, [userInfo]);
+
+  const DashboardCard = ({ title, value, onClick }) => (
+    <div
+      className="shadow-lg mb-4 p-10 flex flex-col items-center justify-center cursor-pointer hover:shadow-xl rounded-lg transition-all duration-300"
+      onClick={onClick}
+    >
+      <h2 className="text-2xl pb-4">{title}</h2>
+      <h3 className="text-sky-500 text-6xl font-extrabold">
+        {value !== null && value !== undefined ? value : 0}
+      </h3>
+    </div>
+  );
+  
+  
+
   return (
     <>
       {userInfo && (
-        <div className="flex min-h-[80vh] my-10 mt-0 px-32 gap-5">
-          <div className="shadow-md h-max p-10 flex flex-col gap-5 min-w-96 w-96">
+        <div className="flex min-h-[80vh] my-10 mt-0 px-6 lg:px-32 gap-5">
+          <div className="shadow-md h-max p-12 flex flex-col gap-5 min-w-[240px] w-96 bg-white rounded-lg">
             <div className="flex gap-5 justify-center items-center">
               <div>
                 {userInfo?.imageName ? (
@@ -36,7 +52,7 @@ function Index() {
                     alt="Profile"
                     width={140}
                     height={140}
-                    className="rounded-full"
+                    className="rounded-full shadow-md"
                   />
                 ) : (
                   <div className="bg-purple-500 h-24 w-24 flex items-center justify-center rounded-full relative">
@@ -53,59 +69,44 @@ function Index() {
                 <span className="font-bold text-md">{userInfo.fullName}</span>
               </div>
             </div>
-            <div className="border-t py-5">
-              <p>{userInfo.description}</p>
+            <div className="border-t border-gray-300 pt-6">
+              <p className="text-gray-700">{userInfo.description}</p>
             </div>
           </div>
-          <div>
-            <div className="grid grid-cols-3 gap-10 w-full">
-              <div
-                className="shadow-md h-max p-10 flex flex-col gap-2 cursor-pointer hover:shadow-xl transition-all duration-300"
-                onClick={() => router.push("/seller/gigs")}
-              >
-                <h2 className="text-xl">Total Gigs</h2>
-                <h3 className="text-[#1DBF73] text-3xl font-extrabold">
-                  {dashboardData?.gigs}
-                </h3>
-              </div>
-              <div
-                className="shadow-md h-max p-10 flex flex-col gap-2 cursor-pointer hover:shadow-xl transition-all duration-300"
-                onClick={() => router.push("/seller/orders")}
-              >
-                <h2 className="text-xl">Total Orders</h2>
-                <h3 className="text-[#1DBF73] text-3xl font-extrabold">
-                  {dashboardData?.orders}
-                </h3>
-              </div>
-              <div
-                className="shadow-md h-max p-10 flex flex-col gap-2 cursor-pointer hover:shadow-xl transition-all duration-300"
-                onClick={() => router.push("/seller/unread-messages")}
-              >
-                <h2 className="text-xl"> Unread Messages</h2>
-                <h3 className="text-[#1DBF73] text-3xl font-extrabold">
-                  {dashboardData?.unreadMessages}
-                </h3>
-              </div>
 
-              <div className="shadow-md h-max p-10 flex flex-col gap-2 cursor-pointer hover:shadow-xl transition-all duration-300">
-                <h2 className="text-xl">Earnings Today</h2>
-                <h3 className="text-[#1DBF73] text-3xl font-extrabold">
-                  ${dashboardData?.dailyRevenue}
-                </h3>
-              </div>
-              <div className="shadow-md h-max p-10 flex flex-col gap-2 cursor-pointer hover:shadow-xl transition-all duration-300">
-                <h2 className="text-xl">Earnings Monthly</h2>
-                <h3 className="text-[#1DBF73] text-3xl font-extrabold">
-                  ${dashboardData?.monthlyRevenue}
-                </h3>
-              </div>
-              <div className="shadow-md h-max p-10 flex flex-col gap-2 cursor-pointer hover:shadow-xl transition-all duration-300">
-                <h2 className="text-xl">Earnings Yearly</h2>
-                <h3 className="text-[#1DBF73] text-3xl font-extrabold">
-                  ${dashboardData?.revenue}
-                </h3>
-              </div>
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16 w-full">
+            <DashboardCard
+              title="Total Gigs"
+              value={dashboardData?.gigs}
+              onClick={() => router.push("/seller/gigs")}
+            />
+            <DashboardCard
+              title="Total Orders"
+              value={dashboardData?.orders}
+              onClick={() => router.push("/seller/order")}
+            />
+            <DashboardCard
+              title="Unread Messages"
+              value={dashboardData?.unreadMessages}
+              onClick={() => router.push("/seller/unread-messages")}
+            />
+            <DashboardCard
+              title="Earnings Today"
+              value={`LKR ${
+                dashboardData?.dailyRevenue !== null &&
+                dashboardData?.dailyRevenue !== undefined
+                  ? dashboardData?.dailyRevenue
+                  : 0
+              }`}
+            />
+            <DashboardCard
+              title="Earnings Monthly"
+              value={`LKR ${dashboardData?.monthlyRevenue !== null && dashboardData?.monthlyRevenue !== undefined ? dashboardData?.monthlyRevenue : 0}`}
+            />
+            <DashboardCard
+              title="Earnings Yearly"
+              value={`LKR ${dashboardData?.revenue !== null && dashboardData?.revenue !== undefined ? dashboardData?.revenue : 0}`}
+            />
           </div>
         </div>
       )}

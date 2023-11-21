@@ -110,14 +110,10 @@ function Profile() {
     <>
       {isLoaded && (
         <div className="flex flex-col items-center justify-start min-h-[80vh] gap-3">
-          {errorMessage && (
-            <div>
-              <span className="text-red-600 font-bold">{errorMessage}</span>
-            </div>
-          )}
-          <h2 className="text-3xl">Welocme to Fiverr Clone</h2>
+         
+          <h2 className="text-3xl">Welocme to Skilled</h2>
           <h4 className="text-xl">
-            Please complete your profile to get started
+           <br></br>
           </h4>
           <div className="flex flex-col items-center w-full gap-5">
             <div
@@ -128,6 +124,7 @@ function Profile() {
               <label className={labelClassName} htmlFor="">
                 Select a profile Picture
               </label>
+              
               <div className="bg-purple-500 h-36 w-36 flex items-center justify-center rounded-full relative">
                 {image ? (
                   <Image
@@ -141,6 +138,7 @@ function Profile() {
                     {userInfo.email[0].toUpperCase()}
                   </span>
                 )}
+                
                 <div
                   className={`absolute bg-slate-400 h-full w-full rounded-full flex items-center justify-center   transition-all duration-100  ${
                     imageHover ? "opacity-100" : "opacity-0"
@@ -172,6 +170,11 @@ function Profile() {
                 </div>
               </div>
             </div>
+            {errorMessage && (
+            <div>
+              <span className="text-red-600 font-bold">{errorMessage}</span>
+            </div>
+          )}
             <div className="grid grid-cols-2 gap-4 w-[500px]">
               <div>
                 <label className={labelClassName} htmlFor="userName">
@@ -217,7 +220,7 @@ function Profile() {
               ></textarea>
             </div>
             <button
-              className="border   text-lg font-semibold px-5 py-3   border-[#1DBF73] bg-[#1DBF73] text-white rounded-md"
+              className="border   text-lg font-semibold px-5 py-3    bg-sky-500 hover:bg-sky-400 text-white rounded-md"
               type="button"
               onClick={setProfile}
             >
