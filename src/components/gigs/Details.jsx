@@ -31,7 +31,7 @@ function Details() {
     <>
       {gigData && currentImage !== "" && (
         <div className="col-span-2 flex flex-col gap-3">
-          <h2 className="text-2xl font-bold text-[#404145] mb-1">
+          <h2 className="text-2xl font-bold text-[#404145] mb-1 overflow-hidden overflow-ellipsis max-h-[80px]">
             {gigData.title}
           </h2>
           <div className="flex items-center gap-2">
@@ -107,7 +107,7 @@ function Details() {
               About this gig
             </h3>
             <div>
-              <p>{gigData.description}</p>
+              <p className="overflow-hidden overflow-ellipsis max-h-[80px]">{gigData.description}</p>
             </div>
           </div>
           {/* About the seller */}
@@ -142,7 +142,7 @@ function Details() {
                     @{gigData.createdBy.username}
                   </span>
                 </div>
-                <div>
+                <div className="overflow-hidden overflow-ellipsis max-h-[80px]">
                   <p>{gigData.createdBy.description}</p>
                 </div>
                 <div className="flex items-center gap-1">

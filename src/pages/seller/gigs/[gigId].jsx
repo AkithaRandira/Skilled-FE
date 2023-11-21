@@ -171,7 +171,7 @@ function EditGig() {
         </div>
         <div className="grid grid-cols-2 gap-11">
           <div>
-            <label htmlFor="delivery">Delivery Time</label>
+            <label htmlFor="delivery" className={labelClassName}>Delivery Time</label>
             <input
               type="number"
               className={inputClassName}

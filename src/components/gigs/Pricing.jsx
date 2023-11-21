@@ -14,11 +14,12 @@ function Pricing() {
         <div className="sticky top-36 mb-10 h-max w-96">
           <div className="border p-10 flex flex-col gap-5">
             <div className="flex justify-between">
-              <h4 className="text-md font-normal text-[#74767e]">
+              <h4 className="text-md font-normal text-[#74767e] overflow-hidden overflow-ellipsis max-h-[80px]">
                 {gigData.shortDesc}
               </h4>
-              <h6 className="font-medium text-lg">LKR {gigData.price}</h6>
+              
             </div>
+              <h6 className="font-medium text-lg">LKR {gigData.price}</h6>
             <div>
               <div className="text-[#62646a] font-semibold text-sm flex gap-6">
                 <div className="flex items-center gap-2">
