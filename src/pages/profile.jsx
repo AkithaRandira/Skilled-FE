@@ -111,7 +111,7 @@ function Profile() {
       {isLoaded && (
         <div className="flex flex-col items-center justify-start min-h-[80vh] gap-3">
          
-          <h2 className="text-3xl">Welocme to Skilled</h2>
+          <h2 className="text-3xl">Welcome to Skilled</h2>
           <h4 className="text-xl">
            <br></br>
           </h4>
