@@ -31,13 +31,11 @@ function Index() {
       onClick={onClick}
     >
       <h2 className="text-2xl pb-4">{title}</h2>
-      <h3 className="text-sky-500 text-5xl font-extrabold">
+      <h3 className="text-sky-500 text-6xl font-extrabold">
         {value !== null && value !== undefined ? value : 0}
       </h3>
     </div>
   );
-  
-  
 
   return (
     <>
@@ -46,13 +44,13 @@ function Index() {
           <div className="shadow-md h-max p-12 flex flex-col gap-5 min-w-[240px] w-96 bg-white rounded-lg">
             <div className="flex gap-5 justify-center items-center">
               <div>
-                {userInfo?.imageName ? (
+                {userInfo?.image ? (
                   <Image
-                    src={userInfo.imageName}
+                    src={userInfo.image}
                     alt="Profile"
-                    width={140}
-                    height={140}
-                    className="rounded-full shadow-md"
+                    width={150}
+                    height={150}
+                    className="rounded-full"
                   />
                 ) : (
                   <div className="bg-purple-500 h-24 w-24 flex items-center justify-center rounded-full relative">
@@ -101,11 +99,21 @@ function Index() {
             />
             <DashboardCard
               title="Earnings Monthly"
-              value={`LKR ${dashboardData?.monthlyRevenue !== null && dashboardData?.monthlyRevenue !== undefined ? dashboardData?.monthlyRevenue : 0}`}
+              value={`LKR ${
+                dashboardData?.monthlyRevenue !== null &&
+                dashboardData?.monthlyRevenue !== undefined
+                  ? dashboardData?.monthlyRevenue
+                  : 0
+              }`}
             />
             <DashboardCard
               title="Earnings Yearly"
-              value={`LKR ${dashboardData?.revenue !== null && dashboardData?.revenue !== undefined ? dashboardData?.revenue : 0}`}
+              value={`LKR ${
+                dashboardData?.revenue !== null &&
+                dashboardData?.revenue !== undefined
+                  ? dashboardData?.revenue
+                  : 0
+              }`}
             />
           </div>
         </div>

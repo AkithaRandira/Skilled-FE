@@ -75,7 +75,7 @@ function AddReview() {
         </div>
         {error && <p className="text-red-500">{error}</p>}
         <button
-          className="flex items-center bg-sky-500 hover:bg-sky-400 text-white py-2 justify-center text-md relative rounded px-5"
+          className="flex items-center bg-[#1DBF73] text-white py-2 justify-center text-md relative rounded px-5"
           onClick={addReview}
         >
           Add Review

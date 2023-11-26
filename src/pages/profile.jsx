@@ -37,9 +37,9 @@ function Profile() {
         fetch(userInfo.imageName).then(async (response) => {
           const contentType = response.headers.get("content-type");
           const blob = await response.blob();
-          
+
           const files = new File([blob], fileName, { contentType });
-         
+
           setImage(files);
         });
       }
@@ -104,16 +104,14 @@ function Profile() {
 
   const inputClassName =
     "block p-4 w-full text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50  focus:ring-blue-500 focus:border-blue-500";
-  const labelClassName =
-    "mb-2 text-lg font-medium text-gray-800 ";
+  const labelClassName = "mb-2 text-lg font-medium text-gray-800 ";
   return (
     <>
       {isLoaded && (
         <div className="flex flex-col items-center justify-start min-h-[80vh] gap-3">
-         
-          <h2 className="text-3xl">Welcome to Skilled</h2>
+          <h2 className="text-3xl">Welocme to Skilled</h2>
           <h4 className="text-xl">
-           <br></br>
+            <br></br>
           </h4>
           <div className="flex flex-col items-center w-full gap-5">
             <div
@@ -124,13 +122,22 @@ function Profile() {
               <label className={labelClassName} htmlFor="">
                 Select a profile Picture
               </label>
-              
+
               <div className="bg-purple-500 h-36 w-36 flex items-center justify-center rounded-full relative">
                 {image ? (
                   <Image
                     src={URL.createObjectURL(image)}
-                    alt="profile"
-                    fill
+                    alt="Profile"
+                    width={150}
+                    height={150}
+                    className="rounded-full"
+                  />
+                ) : userInfo?.image ? (
+                  <Image
+                    src={userInfo.image}
+                    alt="Profile"
+                    width={150}
+                    height={150}
                     className="rounded-full"
                   />
                 ) : (
@@ -138,7 +145,7 @@ function Profile() {
                     {userInfo.email[0].toUpperCase()}
                   </span>
                 )}
-                
+
                 <div
                   className={`absolute bg-slate-400 h-full w-full rounded-full flex items-center justify-center   transition-all duration-100  ${
                     imageHover ? "opacity-100" : "opacity-0"
@@ -171,10 +178,10 @@ function Profile() {
               </div>
             </div>
             {errorMessage && (
-            <div>
-              <span className="text-red-600 font-bold">{errorMessage}</span>
-            </div>
-          )}
+              <div>
+                <span className="text-red-600 font-bold">{errorMessage}</span>
+              </div>
+            )}
             <div className="grid grid-cols-2 gap-4 w-[500px]">
               <div>
                 <label className={labelClassName} htmlFor="userName">

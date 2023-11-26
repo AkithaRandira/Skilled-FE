@@ -43,6 +43,8 @@ function Navbar() {
   const [isFixed, setIsFixed] = useState(false);
   const [searchData, setSearchData] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
+  const [refresh, setRefresh] = useState(false);
+
   const [{ showLoginModal, showSignupModal, isSeller, userInfo }, dispatch] =
     useStateProvider();
 
@@ -86,12 +88,12 @@ function Navbar() {
           console.log({ user });
 
           let projectedUserInfo = { ...user };
-          if (user.image) {
-            projectedUserInfo = {
-              ...projectedUserInfo,
-              imageName: HOST + "/" + user.image,
-            };
-          }
+          // if (user.image) {
+          //   projectedUserInfo = {
+          //     ...projectedUserInfo,
+          //     imageName: HOST + "/" + user.image,
+          //   };
+          // }
           delete projectedUserInfo.image;
           dispatch({
             type: reducerCases.SET_USER,
@@ -266,9 +268,9 @@ function Navbar() {
                 }}
                 title="Profile"
               >
-                {userInfo?.imageName ? (
+                {userInfo?.image ? (
                   <Image
-                    src={userInfo.imageName}
+                    src={userInfo.image}
                     alt="Profile"
                     width={40}
                     height={40}

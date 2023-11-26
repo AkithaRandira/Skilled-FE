@@ -214,7 +214,7 @@ function EditGig() {
               />
               <button
                 type="button"
-                className="focus:outline-none text-white bg-sky-500 hover:bg-sky-400  font-medium  text-lg px-10 py-3 rounded-md "
+                className="focus:outline-none text-white bg-blue-700 hover:bg-blue-800  font-medium  text-lg px-10 py-3 rounded-md "
                 onClick={addFeature}
               >
                 Add
@@ -280,7 +280,7 @@ function EditGig() {
         </div>
         <div>
           <button
-            className="border   text-lg font-semibold px-5 py-3   bg-sky-500 hover:bg-sky-400 text-white rounded-md"
+            className="border   text-lg font-semibold px-5 py-3   border-[#1DBF73] bg-[#1DBF73] text-white rounded-md"
             type="button"
             onClick={editGig}
           >

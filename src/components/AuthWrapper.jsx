@@ -14,6 +14,7 @@ function AuthWrapper({ type }) {
   const router = useRouter();
   const [errors, setErrors] = useState({});
   const [values, setValues] = useState({ email: "", password: "" });
+  const [refresh, setRefresh] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -64,7 +65,8 @@ function AuthWrapper({ type }) {
         dispatch({ type: reducerCases.CLOSE_AUTH_MODAL });
         if (user) {
           dispatch({ type: reducerCases.SET_USER, userInfo: user });
-         // window.location.reload();
+          setRefresh(!refresh);
+          //window.location.reload();
         }
       }
     } catch (err) {
@@ -101,7 +103,7 @@ function AuthWrapper({ type }) {
       blurDiv?.removeEventListener("click", handleBlurDivClick);
       authModal?.removeEventListener("click", handleAuthModalClick);
     };
-  }, [dispatch, showLoginModal, showSignupModal]);
+  }, [dispatch, showLoginModal, showSignupModal, refresh]);
 
   return (
     <div className="fixed top-0 z-[100]">
