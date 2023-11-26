@@ -11,8 +11,8 @@ function Pricing() {
   return (
     <>
       {gigData && (
-        <div className="sticky top-36 mb-10 h-max w-96">
-          <div className="border p-10 flex flex-col gap-5">
+        <div className="sticky top-36 mb-10 h-max w-96 rounded-lg">
+          <div className="border p-10 flex flex-col gap-5 rounded-lg bg-sky-100">
             <div className="flex justify-between">
               <h4 className="text-md font-normal text-[#74767e] overflow-hidden overflow-ellipsis max-h-[80px]">
                 {gigData.shortDesc}
@@ -43,7 +43,7 @@ function Pricing() {
             </ul>
             {gigData.userId === userInfo.id ? (
               <button
-                className="flex items-center bg-[#1DBF73] text-white py-2 justify-center font-bold text-lg relative rounded"
+                className="flex items-center bg-sky-500 hover:bg-sky-400 text-white py-2 justify-center font-bold text-lg relative rounded"
                 onClick={() => router.push(`/seller/gigs/${gigData.id}`)}
               >
                 <span>Edit</span>
@@ -51,7 +51,7 @@ function Pricing() {
               </button>
             ) : (
               <button
-                className="flex items-center bg-[#1DBF73] text-white py-2 justify-center font-bold text-lg relative rounded"
+                className="flex items-center bg-sky-500 hover:bg-sky-400 text-white py-2 justify-center font-bold text-lg relative rounded"
                 onClick={() => router.push(`/checkout?gigId=${gigData.id}`)}
               >
                 <span>Continue</span>
@@ -59,13 +59,7 @@ function Pricing() {
               </button>
             )}
           </div>
-          {gigData.userId !== userInfo.id && (
-            <div className="flex items-center justify-center mt-5">
-              <button className=" w-5/6 hover:bg-[#74767e] py-1 border border-[#74767e] px-5 text-[#6c6d75] hover:text-white transition-all duration-300 text-lg rounded font-bold">
-                Contact Me
-              </button>
-            </div>
-          )}
+         
         </div>
       )}
     </>

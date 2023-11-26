@@ -31,7 +31,7 @@ function Index() {
       onClick={onClick}
     >
       <h2 className="text-2xl pb-4">{title}</h2>
-      <h3 className="text-sky-500 text-6xl font-extrabold">
+      <h3 className="text-sky-500 text-5xl font-extrabold">
         {value !== null && value !== undefined ? value : 0}
       </h3>
     </div>

@@ -92,14 +92,14 @@ export default function CheckoutForm() {
       <button
         disabled={isLoading || !stripe || !elements}
         id="submit"
-        className="border   text-lg font-semibold px-5 py-3   border-[#1DBF73] bg-[#1DBF73] text-white rounded-md mt-5 w-full"
+        className="border   text-lg font-semibold px-5 py-3   bg-sky-500 hover:bg-sky-40 text-white rounded-md mt-5 w-full"
       >
         <span id="button-text">
           {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
         </span>
       </button>
       {/* Show any error or success messages */}
-      {message && <div id="payment-message">{message}</div>}
+      {message && <div id="payment-message" className="text-red-500">{message}</div>}
     </form>
   );
 }
