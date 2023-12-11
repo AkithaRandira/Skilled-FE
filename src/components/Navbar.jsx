@@ -12,6 +12,8 @@ import { reducerCases } from "@/context/constants";
 import ContextMenu from "./search/ContextMenu";
 
 function Navbar() {
+
+
   const handleLogin = () => {
     if (showSignupModal) {
       dispatch({
@@ -101,6 +103,7 @@ function Navbar() {
           });
           setIsLoaded(true);
           console.log({ user });
+          
           if (user.isProfileSet === false) {
             router.push("/profile");
           } else {
@@ -153,6 +156,17 @@ function Navbar() {
       },
     },
   ];
+
+  //give me the code, if the userRole is ADMIN then user should be redirected to admin dashboard
+  if (userInfo && userInfo.userRole === "ADMIN") {
+     router.push("/admin");
+   }
+
+
+
+
+
+
   return (
     <>
       {isLoaded && (

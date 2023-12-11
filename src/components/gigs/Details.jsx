@@ -111,10 +111,13 @@ function Details() {
             </div>
           </div>
           {/* About the seller */}
+
           <div className="">
             <h3 className="text-3xl my-5 font-medium text-[#404145]">
               About the Seller
             </h3>
+            
+            
             <div className="flex gap-4">
               <div>
                 {gigData.createdBy.profileImage ? (
@@ -133,6 +136,8 @@ function Details() {
                   </div>
                 )}
               </div>
+                  
+
               <div className="flex flex-col gap-1 pb-6">
                 <div className="flex  gap-2 items-center">
                   <h4 className="font-medium text-lg">
@@ -167,6 +172,13 @@ function Details() {
                 </div>
               </div>
             </div>
+            <button
+  className="border text-lg font-semibold px-3 py-2 bg-sky-500 hover:bg-sky-400 text-white rounded-md mt-4 mb-8"
+  type="button"
+  onClick={() => router.push("../sellerPortfolio")}
+>
+ Seller Portfolio
+</button>
           </div>
           <Reviews />
           {hasOrdered && <AddReview />}

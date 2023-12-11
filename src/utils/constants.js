@@ -1,4 +1,4 @@
-export const HOST = process.env.NEXT_PUBLIC_SERVER_URL;
+export const HOST = process.env.SERVER_URL;
 export const API_URL = `${HOST}/api`;
 export const IMAGES_URL = `${HOST}/uploads`;
 
@@ -35,3 +35,6 @@ export const GET_UNREAD_MESSAGES = `${MESSAGES_ROUTES}/unread-messages`;
 export const MARK_AS_READ_ROUTE = `${MESSAGES_ROUTES}/mark-as-read`;
 
 export const GET_SELLER_DASHBOARD_DATA = `${DASHBOARD_DATA_ROUTES}/seller`;
+
+
+export const GET_ALL_GIGS = `${GIG_ROUTES}/get-all-gigs`;

@@ -227,17 +227,32 @@ function Profile() {
               ></textarea>
             </div>
             <button
-              className="border   text-lg font-semibold px-5 py-3    bg-sky-500 hover:bg-sky-400 text-white rounded-md"
-              type="button"
-              onClick={setProfile}
-            >
-              Set Profile
-            </button>
+  className="border text-lg font-semibold px-5 py-3 bg-sky-500 hover:bg-sky-400 text-white rounded-md mb-4"
+  type="button"
+  onClick={setProfile}
+>
+  Save Profile
+</button>
+
+<button
+  className="border text-lg font-semibold px-5 py-3 bg-sky-500 hover:bg-sky-400 text-white rounded-md mb-8"
+  type="button"
+  onClick={() => router.push("/portfolio")}
+>
+ Portfolio
+</button>
+
+
           </div>
+
+          
         </div>
+        
       )}
     </>
   );
 }
+
+
 
 export default Profile;
