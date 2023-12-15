@@ -115,6 +115,18 @@ const sellerPortfolio = () => {
             </button>
           </div>
         </div>
+        <div className="text-center mt-8">
+  <button
+    className="border text-md font-semibold px-5 py-3 bg-sky-500 hover:bg-sky-400 text-white rounded-md mx-auto"
+    type="button"
+    onClick={() => router.push("/seller/cv")}
+  >
+    View My CV
+  </button>
+</div>
+
+
+
 
         
       </div>
