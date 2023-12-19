@@ -7,6 +7,7 @@ export const GIG_ROUTES = `${API_URL}/gigs`;
 export const ORDERS_ROUTES = `${API_URL}/orders`;
 export const MESSAGES_ROUTES = `${API_URL}/messages`;
 export const DASHBOARD_DATA_ROUTES = `${API_URL}/dashboard`;
+export const USER_ROUTES = `${API_URL}/users`;
 
 export const LOGIN_ROUTE = `${AUTH_ROUTES}/login`;
 export const SIGNUP_ROUTE = `${AUTH_ROUTES}/signup`;
@@ -38,3 +39,4 @@ export const GET_SELLER_DASHBOARD_DATA = `${DASHBOARD_DATA_ROUTES}/seller`;
 
 
 export const GET_ALL_GIGS = `${GIG_ROUTES}/get-all-gigs`;
+export const GET_ALL_USERS = `${USER_ROUTES}/get-all-users`;
