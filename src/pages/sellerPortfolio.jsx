@@ -8,7 +8,7 @@ const sellerPortfolio = () => {
   return (
     <div className="flex-1 p-10">
       <div className="mb-4 text-center mt-1">
-        <h1 className="text-4xl font-bold mb-4">Seller Portfolio</h1>
+        <h1 className="text-4xl font-bold mb-4">Freelancer Portfolio</h1>
         <p className="text-gray-700"></p>
       </div>
 
